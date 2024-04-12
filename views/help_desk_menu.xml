@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<!-- root menu for help_desk  -->
+    <menuitem id="help_desk_menu_root"
+              name="Help Desk"
+    />
+<!--   main menu for help_desk-->
+    <menuitem id="help_desk_menu_main"
+              name="Help Desk Ticket"
+              parent="help_desk_menu_root"
+              action="help_desk_ticket_record"
+    />
+</odoo>

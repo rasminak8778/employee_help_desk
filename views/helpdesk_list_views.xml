@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="online_helpdesk_ticket_list_form">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+                <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">
+                    <div class="container">
+                        <form action="" method="post" enctype="multipart/form-data" class="o_mark_required"
+                              data-mark="*" data-model_name="" data-success-page="">
+                            <br> </br>
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="s_website_form_rows row s_col_no_bgcolor">
+                                <br> </br>
+                                <br> </br>
+                                <br> </br>
+                                <span>
+                                    <h3>Help Desk Ticket</h3>
+                                </span>
+                                <div class="row">
+                                    <table class="o_list_table position-relative table table-sm o_list_table_ungrouped table-striped o_portal_my_doc_table mb-0">
+                                        <thead data_oe_model="ir.ui.view" data-oe-field="arch">
+                                            <tr class="active">
+                                                <th>Employee</th>
+                                                <th class="text-center">Description</th>
+                                                <th class="text-center">Issue</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="website_requests or []" t-as="web">
+                                                <tr>
+<!--                                                    <t t-if="env.user.has_group('base.group_partner_manager')">-->
+                                                        <td>
+<!--                                                            <a t-att-href="web.get_ticket_url()">-->
+                                                                <t t-out="web.employee_id.name"/>
+<!--                                                            </a>-->
+                                                        </td>
+<!--                                                    </t>-->
+                                                    <td class="text-center">
+                                                        <t t-out="web.name"/>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <t t-out="web.description"/>
+                                                    </td>
+
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>
